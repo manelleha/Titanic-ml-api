@@ -6,7 +6,7 @@ pool:
 
 variables:
   IMAGE_NAME: titanic-api
-  REGISTRY: titanicmlacr712b018f.azurecr.io     # <-- à adapter à TON login server ACR
+  REGISTRY: titanicmlacr712b018f.azurecr.io
   TAG: latest
 
 steps:
