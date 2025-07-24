@@ -1,0 +1,20 @@
+trigger: none
+
+pool:
+  vmImage: 'ubuntu-latest'
+
+variables:
+  APP_NAME: titanic-ml-api-app7d7dec
+  REGISTRY: titanicmlacr712b018f.azurecr.io
+  IMAGE_NAME: titanic-api
+  TAG: latest
+
+steps:
+- checkout: self
+
+- task: AzureWebAppContainer@1
+  displayName: 'Deploy Docker image to Azure Web App'
+  inputs:
+    azureSubscription: 'titanic-ml-sp-service-connection'
+    appName: '$(APP_NAME)'
+    containers: '$(REGISTRY)/$(IMAGE_NAME):$(TAG)'
